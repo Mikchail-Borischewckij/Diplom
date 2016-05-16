@@ -7,7 +7,6 @@
             function ($scope, $rootScope, accountService, usersService, messageServise, costsCategoriesSevice,
                 incomeCategoriesService, currencyService, $filter) {
 
-                //$scope.selectedAccount = { Name: "All", Id: -1 }
                 $scope.months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
                 $scope.monthsCopy = angular.copy($scope.months);
                 $scope.dropDownMonths = [];
@@ -275,17 +274,6 @@
                     showLineChart();
                 }
 
-                //function getSelectedCurrency() {
-                //    if ($scope.selectedAccount === null || !$scope.selectedAccount || $scope.selectedAccount.Id === -1) {
-                //        return;
-                //    }
-                //    angular.forEach($scope.currencies, function (item) {
-                //        if (item.Id === $scope.selectedAccount.Currency.Id) {
-                //            $scope.selectedCurrency = item;
-                //        }
-                //    });
-                //}
-
                 function getDropDownListMonths() {
                     var result = [];
                     var months = getMonths();
@@ -296,28 +284,11 @@
                 }
 
                 $scope.changeAccount = function () {
-                    //if ($scope.selectedAccount.Id === -1) {
-                    //    $scope.selectedAccount['Incomes'] = getIncomesForAllAccounts('Incomes');
-                    //    $scope.selectedAccount['Сonsumptions'] = getIncomesForAllAccounts('Сonsumptions');
-                    //}
-                    //getSelectedCurrency();
                     $scope.dropDownMonths = getDropDownListMonths();
                     showCharts();
                 }
 
                 function getSelectedAccount() {
-                    //var temp = { Name: "All", Id: -1 };
-                    //$scope.accounts.push(temp);
-                    //if (!$rootScope.selected) {
-                    //    $scope.selectedAccount = temp;
-                    //    $scope.selectedCurrency = $scope.selectedAccount.Currency;
-                    //    $scope.selectedAccount['Incomes'] = getIncomesForAllAccounts('Incomes');
-                    //    $scope.selectedAccount['Сonsumptions'] = getIncomesForAllAccounts('Сonsumptions');
-                    //    $scope.dropDownMonths = getDropDownListMonths();
-                    //    getSelectedCurrency();
-                    //    showCharts();
-                    //    return;
-                    //}
                     if (!$rootScope.selected) {
                         $scope.selectedAccount = $scope.accounts[0];
                     } else {
@@ -329,7 +300,6 @@
                     }
                    
                     $scope.dropDownMonths = getDropDownListMonths();
-                    //getSelectedCurrency();
                     showCharts();
                 }
 
@@ -355,22 +325,11 @@
                     }
 
                 }
-                //function getCurrency() {
-                //    var promise = currencyService.query().$promise;
-                //    promise.then(function (data) {
-                //        $scope.currencies = data;
-                //    }).catch(function () {
-                //        messageServise.showErrorMessage("An error occurred while load currencies!");
-                //    });
-                //    return promise;
-                //}
 
                 function getAccounts(user) {
                     accountService.getByUserId({ id: user.Id }, {}).$promise.then(function (data) {
                         $scope.accounts = data;
-                        //getCurrency().then(function (data) {
                             getSelectedAccount();
-                        //});
                     }).catch(function () {
                         messageServise.showErrorMessage("An error occurred while load accounts!");
                     });
@@ -397,16 +356,6 @@
                     }
                     return color;
                 }
-
-                //function getIncomesForAllAccounts(property) {
-                //    var result = [];
-                //    angular.forEach($scope.accounts, function (item) {
-                //        angular.forEach(item[property], function (i) {
-                //            result.push(i);
-                //        });
-                //    });
-                //    return result;
-                //};
             }
 		]);
 }());
