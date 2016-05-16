@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{75BAD93B-D30E-4A65-95B9-2E2DF8B5215F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HomeFinance.Services</RootNamespace>
+    <AssemblyName>HomeFinance.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>HomeFinance.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.Unity, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.0.1304.1\lib\Net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="IAccountsService.cs" />
+    <Compile Include="IAccountUpdatesrService.cs" />
+    <Compile Include="ICostsCategoriesService.cs" />
+    <Compile Include="ICostsPlaningService.cs" />
+    <Compile Include="ICrudService.cs" />
+    <Compile Include="ICurrencyProvider.cs" />
+    <Compile Include="ICurrencyService.cs" />
+    <Compile Include="IIncomeCategoriesService.cs" />
+    <Compile Include="IIncomePlaningService.cs" />
+    <Compile Include="IIncomeService.cs" />
+    <Compile Include="Impl\AccountsService.cs" />
+    <Compile Include="Impl\AccountUpdatesrService.cs" />
+    <Compile Include="Impl\CostsCategoriesService.cs" />
+    <Compile Include="Impl\CostsPlaningService.cs" />
+    <Compile Include="Impl\CurrencyProvider.cs" />
+    <Compile Include="Impl\CurrencyService.cs" />
+    <Compile Include="Impl\EntitiesConverter.cs" />
+    <Compile Include="Impl\EntitiesExtensions.cs" />
+    <Compile Include="Impl\IncomeCategoriesService.cs" />
+    <Compile Include="Impl\IncomePlaningService.cs" />
+    <Compile Include="Impl\IncomeService.cs" />
+    <Compile Include="Impl\TokenService.cs" />
+    <Compile Include="Impl\AuthenticateService.cs" />
+    <Compile Include="Impl\UsersService.cs" />
+    <Compile Include="Impl\CostsService.cs" />
+    <Compile Include="ITokenServices.cs" />
+    <Compile Include="IAuthenticateService.cs" />
+    <Compile Include="IUsersService.cs" />
+    <Compile Include="ICostsService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HomeFinance.Contract\HomeFinance.Contract.csproj">
+      <Project>{DAB0619B-21E1-4564-8114-008B356A53F1}</Project>
+      <Name>HomeFinance.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HomeFinance.Core\HomeFinance.Core.csproj">
+      <Project>{8CF6BC18-215A-4307-87CD-F00DE029DEFB}</Project>
+      <Name>HomeFinance.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HomeFinance.Data\HomeFinance.Data.csproj">
+      <Project>{768050C4-158C-4994-8AEE-7B814781B69A}</Project>
+      <Name>HomeFinance.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="HomeFinance.snk" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

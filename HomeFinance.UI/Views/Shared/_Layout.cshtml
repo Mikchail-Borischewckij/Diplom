@@ -1,0 +1,22 @@
+﻿@using HomeFinance.UI.Configuration.HostsConfiguration
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/styles/bootstrap")
+    @RenderSection("styles", required: false)
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    @RenderBody()
+    @RenderSection("scripts", required: true)
+    <script type="text/javascript">
+        window.appSettings = {
+            homeFinanceApiUrl: '@HostsConfigurationSection.GetSection().Hosts["HomeFinanceApiUrl"].Url',
+        };
+    </script>
+</body>
+</html>

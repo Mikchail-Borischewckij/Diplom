@@ -1,0 +1,110 @@
+﻿<div>
+    <div class="portlet" ng-class="{'opasityDiv':isAccountGridBusy}" ng-hide="IsHideAccounts">
+        <div class="portlet-heading bg-blue">
+            <h3 class="portlet-title text-uppercase">
+                Accounts
+            </h3>
+            <div class="portlet-widgets">
+                <a ng-click="reloadGrid()" ng-hide="isAccountGridBusy"><i class="fa fa-refresh"></i></a>
+                <a ng-show="isAccountGridBusy"><i class="fa fa-spinner fa-spin fa-lg"></i></a>
+                <span class="divider"></span>
+                <a ng-click="isCollapsed = !isCollapsed"><i class="fa fa-minus"></i></a>
+                <span class="divider"></span>
+                <a href="#" ng-click="IsHideAccounts =true"><i class="fa fa-close"></i></a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="portlet-body" collapse="isCollapsed">
+            <div ui-grid="accountsGrid" ui-grid-auto-resize ui-grid-selection ui-grid-pagination ui-grid-edit ui-grid-row-edit ui-grid-cellnav></div>
+
+            <span class="help-block">
+                <button type="button" class="btn btn-info btn-rounded" ng-click="AddAccount()">
+                    <i class="fa fa-plus"></i> Add
+                </button>
+                <button type="button" class="btn btn-danger btn-rounded " ng-click="onClickRemove(accountsGrid)"
+                        ng-disabled="accountsGrid.gridApi.selection.getSelectedRows().length == 0">
+                    <i class="fa fa-minus"></i> Remove
+                </button>
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="portlet" ng-class="{'opasityDiv':isIncomeBusy}" ng-hide="IsHideIncoming">
+                <div class="portlet-heading bg-success">
+                    <h3 class="portlet-title text-uppercase">
+                        Income Categories
+                    </h3>
+                    <div class="portlet-widgets">
+                        <a ng-click="reloadIncomeCategories()" ng-hide="isIncomeBusy"><i class="fa fa-refresh"></i></a>
+                        <a ng-show="isIncomeBusy"><i class="fa fa-spinner fa-spin fa-lg"></i></a>
+                        <span class="divider"></span>
+                        <a ng-click="isIncomeCollapsed = !isIncomeCollapsed"><i class="fa fa-minus"></i></a>
+                        <span class="divider"></span>
+                        <a href="#" ng-click="IsHideIncoming =true"><i class="fa fa-close"></i></a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="portlet-body" collapse="isIncomeCollapsed">
+                    <ul class="list-group no-margn todo-list categories-list">
+                        <li class="list-group-item" ng-repeat="category in incomeCategories">
+                            <span class="todo-text">{{category.Name}}</span>
+                            <a><i class="fa fa-close pull-right" ng-click="removeCategory(incomeCategories,category,true)"></i></a>
+                        </li>
+                    </ul>
+
+                    <form name="todo-form" role="form" class="m-t-20">
+                        <div class="row">
+                            <div class="col-sm-9 todo-inputbar">
+                                <input type="text" name="todo-input-text" class="form-control" ng-model="incomeCategoryName" placeholder="Add new category">
+                            </div>
+                            <div class="col-sm-3 todo-send">
+                                <button class="btn-success btn-block btn" type="button" ng-disabled="!incomeCategoryName" ng-click="addCategory(incomeCategories,incomeCategoryName,true);incomeCategoryName=''">Add</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div> <!-- end col -->
+
+        <div class="col-lg-6">
+            <div class="portlet" ng-class="{'opasityDiv':isCostsBusy}" ng-hide="IsCostsIncoming">
+                <div class="portlet-heading bg-info">
+                    <h3 class="portlet-title text-uppercase">
+                        Costs Categories
+                    </h3>
+                    <div class="portlet-widgets">
+                        <a ng-click="reloadCostsCategories()" ng-hide="isCostsBusy"><i class="fa fa-refresh"></i></a>
+                        <a ng-show="isCostsBusy"><i class="fa fa-spinner fa-spin fa-lg"></i></a>
+                        <span class="divider"></span>
+                        <a ng-click="isCostsCollapsed = !isCostsCollapsed"><i class="fa fa-minus"></i></a>
+                        <span class="divider"></span>
+                        <a href="#" ng-click="IsCostsIncoming =true"><i class="fa fa-close"></i></a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="portlet-body" collapse="isCostsCollapsed">
+                    <ul class="list-group no-margn todo-list categories-list">
+                        <li class="list-group-item" ng-repeat="category in costsCategories">
+                            <span class="todo-text">{{category.Name}}</span>
+                            <a><i class="fa fa-close pull-right" ng-click="removeCategory(costsCategories,category)"></i></a>
+                        </li>
+                    </ul>
+
+                    <form name="todo-form" role="form" class="m-t-20">
+                        <div class="row">
+                            <div class="col-sm-9 todo-inputbar">
+                                <input type="text" name="todo-input-text" class="form-control" ng-model="costsCategoryName" placeholder="Add new category">
+                            </div>
+                            <div class="col-sm-3 todo-send">
+                                <button class="btn-info btn-block btn" type="button" ng-disabled="!costsCategoryName" ng-click="addCategory(costsCategories,costsCategoryName);costsCategoryName=''">Add</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div> <!-- end col -->
+    </div>
+</div>

@@ -1,0 +1,81 @@
+﻿<div class="page-title">
+    <form class="form-inline">
+        <div class="form-group">
+            <label class="title">Account: </label>
+            <select class="form-control" ng-change="changeAccount()" ng-model="selectedAccount" ng-options="item as item.Name for item in accounts"></select>
+        </div>
+        <div class="form-group">
+            <label class="title">Currency: </label>
+            <!--<select class="form-control" ng-model="selectedCurrency" ng-options="item as item.Name for item in currencies"></select>-->
+            <input class="form-control" ng-model="selectedAccount.Currency.Name" disabled />
+        </div>
+    </form>
+</div>
+
+<div class="row" ng-show="isVisibleCharts">
+    <div class="col-lg-4">
+        <div class="portlet" ng-hide="!data || data.length ==0">
+            <div class="portlet-heading">
+                <h3 class="portlet-title text-dark text-uppercase">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label>Transactions</label>
+                            <select ng-change="showTransactionChart()" ng-model="transactionMontch" ng-options="item.Id as item.Name for item in dropDownMonths"></select>
+                        </div>
+                    </form>
+                </h3>
+            </div>
+            <div class="portlet-body">
+                <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-colours="['#33b86c','#337ab7']" chart-labels="labels"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="portlet" ng-show="isVisibleIncome">
+            <div class="portlet-heading">
+                <h3 class="portlet-title text-dark text-uppercase">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label>Incomes categories</label>
+                            <select ng-change="showChartByIncomeCategory()" ng-model="incomesCategoryMontch" ng-options="item.Id as item.Name for item in incomesCategoriesMonthsList"></select>
+                        </div>
+                    </form>
+                </h3>
+            </div>
+            <div class="portlet-body">
+                <canvas id="pie" class="chart chart-pie" chart-colours="incomeColors" chart-data="incomeCategoriesData" chart-labels="incomeCategorieslabels"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="portlet" ng-show="isVisibleCosts">
+            <div class="portlet-heading">
+                <h3 class="portlet-title text-dark text-uppercase">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label>Costs categories</label>
+                            <select ng-change="showChartByCostsCategory()" ng-model="costsCategoryMontch" ng-options="item.Id as item.Name for item in costsCategoriesMonthsList"></select>
+                        </div>
+                    </form>
+                </h3>
+            </div>
+            <div class="portlet-body">
+                <canvas class="chart chart-pie" chart-colours="costsColors" chart-data="costsCategoriesData" chart-labels="costsCategorieslabels"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="portlet" ng-show="IsVisibleLineChart">
+    <div class="portlet-heading">
+        <h3 class="portlet-title text-dark text-uppercase">
+            Income and Costs {{year}}
+        </h3>
+    </div>
+    <div class="portlet-body">
+        <canvas id="line" class="chart chart-line" chart-data="dataLine" chart-colours="['#33b86c','#337ab7']"
+                chart-labels="months" chart-legend="true" chart-series="series"></canvas>
+    </div>
+</div>

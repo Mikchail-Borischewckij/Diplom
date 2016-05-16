@@ -1,0 +1,16 @@
+﻿@using HomeFinance.UI.Extensions
+<div ng-app="homeFinance" ui-view @Html.RequestVerificationToken()></div>
+
+@section styles {
+    @Styles.Render("~/styles/home_finance")
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/angular_chart")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jquery.validate")
+    @Scripts.Render("~/bundles/home_finance")
+
+}

@@ -1,0 +1,90 @@
+﻿<div class="modal-header bg-gray">
+    <h4>
+        <i class="fa fa-sign-in"></i> {{isLogin ? "Sign in" :"Sign up" }}
+        <button type="button" class="close" ng-click="cancel()" ng-hide="isWorking">&times;</button>
+        <span class="pull-right" ng-show="isWorking"><i class="fa fa-spinner fa-spin fa-lg"></i></span>
+    </h4>
+</div>
+<div class="modal-body" ng-class="{'opasityDiv':isWorking}">
+    <div class="alert fade in" ng-class="alert.ngClass" ng-if="alert.isVisible">
+        <i class="fa fa-exclamation-triangle"></i>
+        <a href="#" class="close" data-dismiss="alert" ng-click="alert.isVisible =false">&times;</a>
+        <strong>{{alert.type}}</strong> {{alert.message}}
+    </div>
+    <fieldset ng-disabled="isWorking">
+        <div ng-show="isLogin">
+            <form class="form-horizontal" name="login" role="form" novalidate>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        Name
+                    </label>
+                    <div class="col-sm-9" ng-class="{'has-error':!user.Name}">
+                        <input type="text" class="form-control" ng-model="user.Name" placeholder="Name" autofocus required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        Password
+                    </label>
+                    <div class="col-sm-9" ng-class="{'has-error':!user.Password}">
+                        <input type="password" name="password" class="form-control" ng-minlength="6" ng-maxlength="16" ng-model="user.Password" placeholder="Password" required>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div ng-hide="isLogin">
+            <form class="form-horizontal" name="register" role="form" novalidate>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        Name
+                    </label>
+                    <div class="col-sm-9" ng-class="{'has-error':!user.Name}">
+                        <input type="text" class="form-control" ng-model="user.Name" placeholder="Name" autofocus required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        Email
+                    </label>
+                    <div class="col-sm-9" ng-class="{'has-error':!user.Email|| (login.email.$invalid && !login.name.$pristine)}">
+                        <input type="email" name="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control" ng-model="user.Email" placeholder="Email" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        Password
+                    </label>
+                    <div class="col-sm-9" ng-class="{'has-error':!user.Password || (login.password.$invalid && !login.password.$pristine)}">
+                        <input type="password" name="password" class="form-control" ng-minlength="6" ng-maxlength="16" ng-model="user.Password" placeholder="Password" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        Confirm password
+                    </label>
+                    <div class="col-sm-9" ng-class="{'has-error':!user.Password || user.Password != user.ConfirmPassword}">
+                        <input type="password" name="password" class="form-control" ng-minlength="6" ng-maxlength="16" ng-model="user.ConfirmPassword" placeholder="Confirm Password" required>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </fieldset>
+</div>
+<div class="modal-footer bg-gray">
+    <div>
+        <button class="btn btn-success btn-sm" ng-click="ok()" ng-show="isLogin" ng-disabled="login.$invalid">
+            Sign in
+        </button>
+        <span class="pull-left" ng-show="isLogin">
+            Not Registred? <a ng-click="isLogin =false; alert.isVisible =false">Register here</a>
+        </span>
+    </div>
+    <div>
+        <button class="btn btn-success btn-sm" ng-hide="isLogin" ng-click="ok()" ng-disabled="register.$invalid">
+            Sign up
+        </button>
+        <span class="pull-left" ng-hide="isLogin">
+            You already have an account? <a ng-click="isLogin =true; alert.isVisible =false">Sign in</a>
+        </span>
+    </div>
+</div>

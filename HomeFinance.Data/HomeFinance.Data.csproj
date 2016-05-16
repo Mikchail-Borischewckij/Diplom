@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{768050C4-158C-4994-8AEE-7B814781B69A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HomeFinance.Data</RootNamespace>
+    <AssemblyName>HomeFinance.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>HomeFinance.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Domain\Account.cs" />
+    <Compile Include="Domain\Cost.cs" />
+    <Compile Include="Domain\CostsCategory.cs" />
+    <Compile Include="Domain\CostsPlaning.cs" />
+    <Compile Include="Domain\Currency.cs" />
+    <Compile Include="Domain\Entity.cs" />
+    <Compile Include="Domain\Income.cs" />
+    <Compile Include="Domain\IncomeCategory.cs" />
+    <Compile Include="Domain\IncomePlaning.cs" />
+    <Compile Include="Domain\Planing.cs" />
+    <Compile Include="Domain\Token.cs" />
+    <Compile Include="Domain\User.cs" />
+    <Compile Include="Impl\DatabaseContext.cs" />
+    <Compile Include="Impl\Initializer.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="IUnitOfWork.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Impl\UnitOfWork.cs" />
+    <Compile Include="Repositories\IAccountsCollections.cs" />
+    <Compile Include="Repositories\ICostsCategoryCollections.cs" />
+    <Compile Include="Repositories\ICostsPlaningCollections.cs" />
+    <Compile Include="Repositories\ICurrencyCollections.cs" />
+    <Compile Include="Repositories\IIncomeCategoriesCollections.cs" />
+    <Compile Include="Repositories\IIncomeCollections.cs" />
+    <Compile Include="Repositories\IIncomePlaningCollections.cs" />
+    <Compile Include="Repositories\Impl\AccountsRepository.cs" />
+    <Compile Include="Repositories\Impl\CostsCategoryRepository.cs" />
+    <Compile Include="Repositories\Impl\CostsPlaningRepository.cs" />
+    <Compile Include="Repositories\Impl\CurrencyRepository.cs" />
+    <Compile Include="Repositories\Impl\IncomeCategoriesRepository.cs" />
+    <Compile Include="Repositories\Impl\IncomePlaningRepository.cs" />
+    <Compile Include="Repositories\Impl\IncomeRepository.cs" />
+    <Compile Include="Repositories\Impl\PlaningBaseRepository.cs" />
+    <Compile Include="Repositories\Impl\TokensRepository.cs" />
+    <Compile Include="Repositories\Impl\CostsRepository.cs" />
+    <Compile Include="Repositories\ITokenCollections.cs" />
+    <Compile Include="Repositories\Impl\RepositoryBase.cs" />
+    <Compile Include="Repositories\Impl\UsersRepository.cs" />
+    <Compile Include="Repositories\IUsersCollections.cs" />
+    <Compile Include="Repositories\ICostsCollections.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="HomeFinance.snk" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HomeFinance.Contract\HomeFinance.Contract.csproj">
+      <Project>{DAB0619B-21E1-4564-8114-008B356A53F1}</Project>
+      <Name>HomeFinance.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HomeFinance.Core\HomeFinance.Core.csproj">
+      <Project>{8cf6bc18-215a-4307-87cd-f00de029defb}</Project>
+      <Name>HomeFinance.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,72 @@
+﻿<div>
+	<div class="page-title">
+		<form class="form-inline">
+			<div class="form-group">
+				<label class="title">Account: </label>
+                <select class="form-control" ng-change="change()" ng-model="selectedAccount" ng-options="item as item.Name for item in accounts"></select>
+			</div>
+			<span class="divider"></span>
+			<div class="form-group">
+				<label class="title">Month: </label>
+                <select class="form-control" ng-model="selectedMonth" ng-change="change()" ng-options="item.id as item.value for item in months"></select>
+			</div>
+		</form>
+	</div>
+	<div class="portlet" ng-class="{'opasityDiv':isIncomeBusy}" ng-hide="IsHideIncoming">
+		<div class="portlet-heading bg-success">
+			<h3 class="portlet-title text-uppercase">
+				Incoming
+			</h3>
+			<div class="portlet-widgets">
+				<a ng-show="isIncomeBusy"><i class="fa fa-spinner fa-spin fa-lg"></i></a>
+				<span class="divider"></span>
+				<a ng-click="isCollapsed = !isCollapsed"><i class="fa fa-minus"></i></a>
+				<span class="divider"></span>
+				<a href="#" ng-click="IsHideIncoming =true"><i class="fa fa-close"></i></a>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="portlet-body" collapse="isCollapsed">
+			<div ui-grid="incomesGrid" ui-grid-auto-resize ui-grid-selection ui-grid-edit ui-grid-row-edit ui-grid-cellnav></div>
+
+			<span class="help-block">
+                <button type="button" class="btn btn-info btn-rounded" ng-click="addIncome()">
+                    <i class="fa fa-plus"></i> Add
+                </button>
+                <button type="button" class="btn btn-danger btn-rounded " ng-click="onClickRemove(incomesGrid)"
+                        ng-disabled="incomesGrid.gridApi.selection.getSelectedRows().length == 0">
+                    <i class="fa fa-minus"></i> Remove
+                </button>
+            </span>
+		</div>
+	</div>
+
+    <div class="portlet" ng-class="{'opasityDiv':isCostsBusy}" ng-hide="IsHideCosts">
+        <div class="portlet-heading bg-info">
+            <h3 class="portlet-title  text-uppercase">
+                Сosts
+            </h3>
+            <div class="portlet-widgets">
+                <a ng-show="isCostsBusy"><i class="fa fa-spinner fa-spin fa-lg"></i></a>
+                <span class="divider"></span>
+                <a ng-click="isCollapsedCosts = !isCollapsedCosts"><i class="fa fa-minus"></i></a>
+                <span class="divider"></span>
+                <a href="#" ng-click="IsHideCosts =true"><i class="fa fa-close"></i></a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="portlet-body" collapse="isCollapsedCosts">
+            <div ui-grid="costsGrid" ui-grid-auto-resize ui-grid-selection ui-grid-pagination ui-grid-edit ui-grid-row-edit ui-grid-cellnav></div>
+            <span class="help-block">
+                <button type="button" class="btn btn-info btn-rounded help-block" ng-click="addCost()">
+                    <i class="fa fa-plus"></i> Add
+                </button>
+                <button type="button" class="btn btn-danger btn-rounded help-block" ng-click="onClickRemove(costsGrid)"
+                        ng-disabled="costsGrid.gridApi.selection.getSelectedRows().length == 0">
+                    <i class="fa fa-minus"></i> Remove
+                </button>
+            </span>
+        </div>
+    </div>
+</div>

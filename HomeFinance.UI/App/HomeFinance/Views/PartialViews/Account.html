@@ -1,0 +1,103 @@
+﻿<div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="mini-stat clearfix">
+                <span class="mini-stat-icon bg-warning"><i class="fa fa-credit-card"></i></span>
+                <div class="mini-stat-info text-right">
+                    <span class="counter">{{account.Name}}</span>
+                    Account name
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="mini-stat clearfix">
+                <span ng-if="account.Currency.Name=='BLR'" class="mini-stat-icon bg-info">Br</span>
+                <span ng-if="account.Currency.Name!='BLR'" class="mini-stat-icon bg-info"><i ng-class="{'fa fa-rub':account.Currency.Name=='RUB','fa fa-usd':account.Currency.Name=='USD','fa fa-eur': account.Currency.Name=='EUR'}"></i></span>
+                <div class="mini-stat-info text-right">
+                    <span class="counter">{{account.AmountMoney | currency:"":0}}</span>
+                    Amount of money
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="mini-stat clearfix">
+                <span class="mini-stat-icon bg-pink"><i class="fa fa-calendar"></i></span>
+                <div class="mini-stat-info text-right">
+                    <span class="counter">{{date| date :'MMMM d, yy'}}</span>
+                    Current date
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="mini-stat clearfix">
+                <span class="mini-stat-icon bg-success"><i class="fa fa-clock-o"></i></span>
+                <div class="mini-stat-info text-right">
+                    <span class="counter" current-time></span>
+                    Current time
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portlet" ng-class="{'opasityDiv':isIncomeBusy}" ng-hide="IsHideIncoming">
+        <div class="portlet-heading bg-success">
+            <h3 class="portlet-title text-uppercase">
+                Incoming
+            </h3>
+            <div class="portlet-widgets">
+                <a ng-click="reloadIncome()" ng-hide="isIncomeBusy"><i class="fa fa-refresh"></i></a>
+                <a ng-show="isIncomeBusy"><i class="fa fa-spinner fa-spin fa-lg"></i></a>
+                <span class="divider"></span>
+                <a ng-click="isCollapsed = !isCollapsed"><i class="fa fa-minus"></i></a>
+                <span class="divider"></span>
+                <a href="#" ng-click="IsHideIncoming =true"><i class="fa fa-close"></i></a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="portlet-body" collapse="isCollapsed">
+            <div ui-grid="incomesGrid" ui-grid-auto-resize ui-grid-selection ui-grid-pagination ui-grid-edit ui-grid-row-edit ui-grid-cellnav></div>
+
+            <span class="help-block">
+                <button type="button" class="btn btn-info btn-rounded" ng-click="AddIncome()">
+                    <i class="fa fa-plus"></i> Add
+                </button>
+                <button type="button" class="btn btn-danger btn-rounded " ng-click="onClickRemove(incomesGrid)"
+                        ng-disabled="incomesGrid.gridApi.selection.getSelectedRows().length == 0">
+                    <i class="fa fa-minus"></i> Remove
+                </button>
+            </span>
+        </div>
+    </div>
+
+    <div class="portlet" ng-class="{'opasityDiv':isCostsBusy}" ng-hide="IsHideCosts">
+        <div class="portlet-heading bg-info">
+            <h3 class="portlet-title  text-uppercase">
+                Сosts
+            </h3>
+            <div class="portlet-widgets">
+                <a ng-click="reloadCosts()" ng-hide="isCostsBusy"><i class="fa fa-refresh"></i></a>
+                <a ng-show="isCostsBusy"><i class="fa fa-spinner fa-spin fa-lg"></i></a>
+                <span class="divider"></span>
+                <a ng-click="isCollapsedCosts = !isCollapsedCosts"><i class="fa fa-minus"></i></a>
+                <span class="divider"></span>
+                <a href="#" ng-click="IsHideCosts =true"><i class="fa fa-close"></i></a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="portlet-body" collapse="isCollapsedCosts">
+            <div ui-grid="costsGrid" ui-grid-auto-resize ui-grid-selection ui-grid-pagination ui-grid-edit ui-grid-row-edit ui-grid-cellnav></div>
+            <span class="help-block">
+                <button type="button" class="btn btn-info btn-rounded help-block" ng-click="AddCosts()">
+                    <i class="fa fa-plus"></i> Add
+                </button>
+                <button type="button" class="btn btn-danger btn-rounded help-block" ng-click="onClickRemove(costsGrid)"
+                        ng-disabled="costsGrid.gridApi.selection.getSelectedRows().length == 0">
+                    <i class="fa fa-minus"></i> Remove
+                </button>
+            </span>
+        </div>
+    </div>
+
+</div>
+
