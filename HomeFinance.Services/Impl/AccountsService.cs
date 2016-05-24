@@ -76,7 +76,7 @@ namespace HomeFinance.Services.Impl
         {
             using (IUnitOfWork unitOfWork = _lazyUnitOfWork.Value)
             {
-                IEnumerable<Data.Domain.Account> accounts = unitOfWork.Accounts.All();
+                IEnumerable<Data.Domain.Account> accounts = unitOfWork.Accounts.All().ToList();
                 return accounts.Select(EntitiesConverter.ToContract);
             }
         }

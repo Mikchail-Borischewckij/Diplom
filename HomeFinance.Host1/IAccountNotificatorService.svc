@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="HomeFinance.Host1.AccountNotificatorService" Factory="HomeFinance.Host1.WcfServiceFactory" %>

@@ -7,7 +7,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using HomeFinance.Host;
+using HomeFinance.Host1;
 using Newtonsoft.Json;
 
 namespace HomeFinance.UI
@@ -22,6 +22,27 @@ namespace HomeFinance.UI
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
 			BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+			var myBinding = new BasicHttpBinding();
+			var myEndpoint = new EndpointAddress("http://localhost:3789/AccountNotificatorService.svc");
+			var myChannelFactory = new ChannelFactory<IAccountNotificatorService>(myBinding, myEndpoint);
+
+			IAccountNotificatorService client = null;
+
+			try
+			{
+				client = myChannelFactory.CreateChannel();
+				client.UpdataAccounts();
+				((ICommunicationObject)client).Close();
+			}
+			catch
+			{
+				if (client != null)
+				{
+					((ICommunicationObject)client).Abort();
+				}
+			}
+
       }
 
 	}

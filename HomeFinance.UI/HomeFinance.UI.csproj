@@ -376,9 +376,9 @@
       <Project>{768050c4-158c-4994-8aee-7b814781b69a}</Project>
       <Name>HomeFinance.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HomeFinance.Host\HomeFinance.Host.csproj">
-      <Project>{7EB8AC8C-FD1E-4360-91D3-E4DCDE56AE89}</Project>
-      <Name>HomeFinance.Host</Name>
+    <ProjectReference Include="..\HomeFinance.Host1\HomeFinance.Host1.csproj">
+      <Project>{2f5a6e2e-d26e-4c98-9e8c-8b179d9fca28}</Project>
+      <Name>HomeFinance.Host1</Name>
     </ProjectReference>
     <ProjectReference Include="..\HomeFinance.Services\HomeFinance.Services.csproj">
       <Project>{75bad93b-d30e-4a65-95b9-2e2df8b5215f}</Project>
