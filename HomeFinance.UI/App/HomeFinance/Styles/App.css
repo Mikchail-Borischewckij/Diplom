@@ -1,22 +1,69 @@
 ﻿.modal-header {
     padding: 10px;
 }
-@-webkit-keyframes spinner-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-@-moz-keyframes spinner-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-@-o-keyframes spinner-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-@-ms-keyframes spinner-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-@keyframes spinner-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
- 
-.fa-spinner.fa-spin {
-  -webkit-animation: spinner-spin  1s steps(8) infinite;
-  -moz-animation: spinner-spin  1s steps(8) infinite;
-  -o-animation: spinner-spin  1s steps(8) infinite;
-  animation: spinner-spin  1s steps(8) infinite;
+
+@-webkit-keyframes spinner-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
+
+@-moz-keyframes spinner-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@-o-keyframes spinner-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@-ms-keyframes spinner-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinner-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.fa-spinner.fa-spin {
+    -webkit-animation: spinner-spin 1s steps(8) infinite;
+    -moz-animation: spinner-spin 1s steps(8) infinite;
+    -o-animation: spinner-spin 1s steps(8) infinite;
+    animation: spinner-spin 1s steps(8) infinite;
+}
+
 .opasityDiv {
     -ms-opacity: 0.5;
     opacity: 0.5;
 }
+
 .left-panel {
     overflow-y: auto;
     overflow-x: hidden;
@@ -34,82 +81,85 @@
     max-height: 200px;
     overflow-y: auto;
 }
+
 .counter {
-     white-space: nowrap; /* Запрещаем перенос строк */
+    white-space: nowrap; /* Запрещаем перенос строк */
     overflow: hidden; /* Обрезаем все, что не помещается в область */
     text-overflow: ellipsis; /* Добавляем многоточие */
 }
 
-    .notifyjs-metro-base {
-        position: relative;
-        min-height: 52px;
-        min-width: 250px;
-        color: #444;
-        border-radius: 3px;
-        -webkit-border-radius: 3px;
-        box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
+.notifyjs-metro-base {
+    position: relative;
+    min-height: 52px;
+    min-width: 250px;
+    color: #444;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
+}
+
+    .notifyjs-metro-base .image {
+        display: table;
+        position: absolute;
+        height: auto;
+        width: auto;
+        left: 25px;
+        top: 50%;
+        font-size: 24px;
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
     }
 
-        .notifyjs-metro-base .image {
-            display: table;
-            position: absolute;
-            height: auto;
-            width: auto;
-            left: 25px;
-            top: 50%;
-            font-size: 24px;
-            -moz-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            -o-transform: translate(-50%, -50%);
-            -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-        }
-
-        .notifyjs-metro-base .text-wrapper {
-            display: inline-block;
-            vertical-align: top;
-            text-align: left;
-            margin: 10px 10px 10px 52px;
-            clear: both;
-        }
-
-        .notifyjs-metro-base .title {
-            font-size: 15px;
-            line-height: 20px;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        .notifyjs-metro-base .text {
-            font-size: 12px;
-            font-weight: normal;
-            max-width: 360px;
-            vertical-align: middle;
-        }
-
-    .notifyjs-metro-cool {
-        color: #fafafa !important;
-        background-color: #4A525F;
-        border: 1px solid #4A525F;
+    .notifyjs-metro-base .text-wrapper {
+        display: inline-block;
+        vertical-align: top;
+        text-align: left;
+        margin: 10px 10px 10px 52px;
+        clear: both;
     }
 
-    .notifyjs-metro-success {
-        color: #fafafa !important;
-        background-color: rgba(51, 184, 108, 0.8);
-        border: 1px solid #33b86c;
-    }
-    .notifyjs-metro-error {
-        color: #fafafa !important;
-        background-color: rgba(203, 42, 42, 0.8);
-        border: 1px solid #cb2a2a;
+    .notifyjs-metro-base .title {
+        font-size: 15px;
+        line-height: 20px;
+        margin-bottom: 5px;
+        font-weight: bold;
     }
 
-    .notifyjs-metro-info {
+    .notifyjs-metro-base .text {
+        font-size: 12px;
+        font-weight: normal;
+        max-width: 360px;
+        vertical-align: middle;
+    }
+
+.notifyjs-metro-cool {
+    color: #fafafa !important;
+    background-color: #4A525F;
+    border: 1px solid #4A525F;
+}
+
+.notifyjs-metro-success {
+    color: #fafafa !important;
+    background-color: rgba(51, 184, 108, 0.8);
+    border: 1px solid #33b86c;
+}
+
+.notifyjs-metro-error {
+    color: #fafafa !important;
+    background-color: rgba(203, 42, 42, 0.8);
+    border: 1px solid #cb2a2a;
+}
+
+.notifyjs-metro-info {
     color: #fafafa !important;
     background-color: rgba(28, 168, 221, 0.8);
     border: 1px solid #1ca8dd;
 }
-    .notifyjs-metro-black {
+
+.notifyjs-metro-black {
     color: #fafafa !important;
     background-color: rgba(20, 8, 45, 0.8);
     border: 1px solid #14082d;
@@ -125,9 +175,10 @@
     background-color: #337ab7;
 }
 
-.bg-blue .fa {
-   color: #fff; 
-}
+    .bg-blue .fa {
+        color: #fff;
+    }
+
 .title {
     font-size: 20px;
 }
@@ -150,8 +201,9 @@
 .red {
     color: #cb2a2a;
 }
+
 .green {
-    color:#33b86c
+    color: #33b86c;
 }
 
 .currency-body {
@@ -161,6 +213,53 @@
 .currency-item, .currency-item:first-child, .currency-item:last-child {
     height: 55px;
 }
+
 .currency-item {
-        padding: 1px 10px;
+    padding: 1px 10px;
+}
+
+.stepwizard-step p {
+    margin-top: 10px;
+}
+
+.stepwizard-row {
+    display: table-row;
+}
+
+.stepwizard {
+    display: table;
+    width: 510px;
+    position: relative;
+}
+
+.stepwizard-step button[disabled] {
+    opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
+}
+
+.stepwizard-row:before {
+    top: 14px;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    z-order: 0;
+}
+
+.stepwizard-step {
+    display: table-cell;
+    text-align: center;
+    position: relative;
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
 }

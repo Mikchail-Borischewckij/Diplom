@@ -15,25 +15,24 @@ set ConfigurationMode=Debug
 
 
 rem ---------------------------------------------------------------------------
-rem   Remove Host and Shell apps, physical dirs and custom app pool
+rem   Remove Host and UI apps, physical dirs and custom app pool
 rem ---------------------------------------------------------------------------
 if not defined wwwroot (
 	exit /b
 )
+ %inetsrv%\appcmd list apps /path:"/%InternalToolsAppPath%"
+ if "%ERRORLEVEL%" EQU "0" (
+ 	%inetsrv%\appcmd delete app "%DefaultSite%/%InternalToolsAppPath%"
+  )
 
- rem %inetsrv%\appcmd list apps /path:"/%InternalToolsAppPath%"
- rem if "%ERRORLEVEL%" EQU "0" (
-rem 	%inetsrv%\appcmd delete app "%DefaultSite%/%InternalToolsAppPath%"
-rem  )
+ %inetsrv%\appcmd list apppool "%AppPool%"
+ if "%ERRORLEVEL%" EQU "0" (
+ 	%inetsrv%\appcmd delete apppool "%AppPool%"
+)
 
-rem %inetsrv%\appcmd list apppool "%AppPool%"
-rem if "%ERRORLEVEL%" EQU "0" (
-rem 	%inetsrv%\appcmd delete apppool "%AppPool%"
-rem )
-
-rem IF EXIST "%wwwroot%\%InternalToolsAppPath%" (
-rem 	rd /s /q "%wwwroot%\%InternalToolsAppPath%"
-rem )
+ IF EXIST "%wwwroot%\%InternalToolsAppPath%" (
+ 	rd /s /q "%wwwroot%\%InternalToolsAppPath%"
+ )
 
 rem ---------------------------------------------------------------------------
 rem   Create custom app pool, Host and Shell apps with physical dirs,
@@ -48,14 +47,12 @@ rem ---------------------------------------------------------------------------
 rem   Grant access ApplicationPoolIdentity to physical dirs and databases
 rem ---------------------------------------------------------------------------
 
-rem icacls "%wwwroot%\%HostAppPath%" /grant "Authenticated Users":(OI)(CI)MRXRW
-rem icacls "%wwwroot%\%ShellAppPath%" /grant "Authenticated Users":(OI)(CI)MRXRW
-rem icacls "%wwwroot%\%ProfileBuilderAppPath%" /grant "Authenticated Users":(OI)(CI)MRXRW
-rem cacls "%wwwroot%\%InternalToolsAppPath%" /grant "Authenticated Users":(OI)(CI)MRXRW
+ icacls "%wwwroot%\%HostAppPath%" /grant "Authenticated Users":(OI)(CI)MRXRW
+ icacls "%wwwroot%\%InternalToolsAppPath%" /grant "Authenticated Users":(OI)(CI)MRXRW
 
 rem This is needed to have possibility to debug WCF services from Visual Studio
-rem icacls "%FrameworkTempFiles%" /grant "IIS APPPOOL\%AppPool%":(OI)(CI)MRXRW
-rem icacls "%Framework64TempFiles%" /grant "IIS APPPOOL\%AppPool%":(OI)(CI)MRXRW
+ icacls "%FrameworkTempFiles%" /grant "IIS APPPOOL\%AppPool%":(OI)(CI)MRXRW
+ icacls "%Framework64TempFiles%" /grant "IIS APPPOOL\%AppPool%":(OI)(CI)MRXRW
 
 sqlcmd -S %SqlServer% -i "%DeployDir%\GrantAppPoolAccessToSqlServer.sql"
 

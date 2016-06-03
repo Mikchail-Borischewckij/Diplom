@@ -6,6 +6,6 @@ namespace HomeFinance.Services
     public interface IIncomePlaningService : ICrudService<IncomePlaning>
     {
 	    IEnumerable<IncomePlaning> ByAccountIdAndMonth(int accountId,int month);
-        IEnumerable<int> ByAccountId(int accountId);
+        IEnumerable<int> ByMonthsAccountId(int accountId);
     }
 }

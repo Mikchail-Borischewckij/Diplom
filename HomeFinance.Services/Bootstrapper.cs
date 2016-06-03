@@ -17,6 +17,7 @@ namespace HomeFinance.Services
             container.RegisterType<ICostsService, CostsService>();
             container.RegisterType<IAccountsService, AccountsService>();
             container.RegisterType<ICurrencyService, CurrencyService>();
+            container.RegisterType<IPlaningService, PlaningService>();
             container.RegisterType<IIncomeCategoriesService, IncomeCategoriesService>();
             container.RegisterType<ICostsCategoriesService, CostsCategoriesService>();
 			container.RegisterType<IIncomePlaningService, IncomePlaningService>();

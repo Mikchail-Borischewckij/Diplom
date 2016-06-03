@@ -57,7 +57,8 @@ namespace HomeFinance.UI
                 "~/Scripts/angular-ui-router.js",
                 "~/Scripts/angular-local-storage.js",
                 "~/Scripts/angular-loading-bar/*.js",
-                "~/Scripts/ui-grid.js"
+                "~/Scripts/ui-grid.js",
+                "~/Scripts/angular.rangeSlider.js"
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/home_finance").Include(
@@ -82,7 +83,8 @@ namespace HomeFinance.UI
                 "~/Content/ui-grid.css",
                 "~/Content/angular-loading-bar/*.css",
                 "~/Content/angular-chart/*.css",
-                "~/Content/angular-notify.css"
+                "~/Content/angular-notify.css",
+                "~/Content/angular.rangeSlider.css"
                 ));
 
             bundles.Add(new StyleBundle("~/styles/home_finance").Include(

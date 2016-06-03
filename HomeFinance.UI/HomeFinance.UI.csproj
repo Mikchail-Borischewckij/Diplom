@@ -53,10 +53,6 @@
       <HintPath>..\packages\Unity.3.0.1304.1\lib\Net45\Microsoft.Practices.Unity.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.3.0.1304.1\lib\Net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -152,6 +148,7 @@
     <Compile Include="Controllers\IncomeCategoriesController.cs" />
     <Compile Include="Controllers\IncomeController.cs" />
     <Compile Include="Controllers\IncomePlaningController.cs" />
+    <Compile Include="Controllers\PlaningController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\CostController.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions.cs" />
@@ -171,6 +168,7 @@
     <Content Include="App\HomeFinance\AppConstants.js" />
     <Content Include="App\HomeFinance\Controllers\AddPlaningController.js" />
     <Content Include="App\HomeFinance\Controllers\DashboardHomeController.js" />
+    <Content Include="App\HomeFinance\Controllers\PlaningCalculatorController.js" />
     <Content Include="App\HomeFinance\Controllers\PlaningController.js" />
     <Content Include="App\HomeFinance\Directives\RequestVerificationToken.js" />
     <Content Include="App\HomeFinance\Endpoins.js" />
@@ -199,6 +197,7 @@
     <Content Include="App\HomeFinance\Services\Data\CostsPlaningService.js" />
     <Content Include="App\HomeFinance\Services\Data\CurrencyService.js" />
     <Content Include="App\HomeFinance\Services\Data\IncomePlaningService.js" />
+    <Content Include="App\HomeFinance\Services\Data\PlaningService.js" />
     <Content Include="App\HomeFinance\Services\EditableGridFactory.js" />
     <Content Include="App\HomeFinance\Services\Data\IncomeCategoriesService.js" />
     <Content Include="App\HomeFinance\Services\Data\IncomeService.js" />
@@ -225,6 +224,7 @@
     <Content Include="App\HomeFinance\Views\PartialViews\CreateAccount.html" />
     <Content Include="App\HomeFinance\Views\PartialViews\DashboardHome.html" />
     <Content Include="App\HomeFinance\Views\PartialViews\Planing.html" />
+    <Content Include="App\HomeFinance\Views\PartialViews\PlaningCalculator.html" />
     <Content Include="App\HomeFinance\Views\PartialViews\RemoveItemsDialog.html" />
     <Content Include="App\HomeFinance\Views\PartialViews\Settings.html" />
     <Content Include="App\HomeFinance\Views\PartialViews\Statistic.html" />
@@ -376,9 +376,9 @@
       <Project>{768050c4-158c-4994-8aee-7b814781b69a}</Project>
       <Name>HomeFinance.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HomeFinance.Host1\HomeFinance.Host1.csproj">
+    <ProjectReference Include="..\HomeFinance.Host1\HomeFinance.Host.csproj">
       <Project>{2f5a6e2e-d26e-4c98-9e8c-8b179d9fca28}</Project>
-      <Name>HomeFinance.Host1</Name>
+      <Name>HomeFinance.Host</Name>
     </ProjectReference>
     <ProjectReference Include="..\HomeFinance.Services\HomeFinance.Services.csproj">
       <Project>{75bad93b-d30e-4a65-95b9-2e2df8b5215f}</Project>
@@ -401,6 +401,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -36,8 +36,10 @@
 			        //costsPlaning
 			        costsPlaningEndpoint: appConfig.homeFinanceApiUrl + 'cotsPlaning/:id',
 			        allCostsPlaningEndpoint: appConfig.homeFinanceApiUrl + 'cotsPlaning/:id/:month',
-			        monthsCostsPlaningEndpoint: appConfig.homeFinanceApiUrl + 'incomePlaning/:id'
-			        
+			        monthsCostsPlaningEndpoint: appConfig.homeFinanceApiUrl + 'incomePlaning/:id',
+
+                    //planing 
+			        planingEndpoint: appConfig.homeFinanceApiUrl + 'planing/'
 			    };
 			}
 		]);

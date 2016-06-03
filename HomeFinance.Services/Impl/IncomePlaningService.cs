@@ -88,7 +88,7 @@ namespace HomeFinance.Services.Impl
 			}
 	    }
 
-        public IEnumerable<int> ByAccountId(int accountId)
+        public IEnumerable<int> ByMonthsAccountId(int accountId)
         {
             using (IUnitOfWork unitOfWork = _lazyUnitOfWork.Value)
             {

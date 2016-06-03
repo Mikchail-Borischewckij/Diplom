@@ -1,0 +1,114 @@
+﻿<div class="modal-header">
+    <h4>
+        <i class="fa fa-calculator" aria-hidden="true"></i>
+        Planing Calculator
+        <button type="button" class="close" ng-click="cancel()" ng-hide="isBusy">&times;</button>
+        <span class="pull-right" ng-show="isBusy"><i class="fa fa-spinner fa-spin fa-lg"></i></span>
+    </h4>
+
+</div>
+<div class="modal-body" ng-class="{'opasity':isBusy}">
+    <div class="alert fade in" ng-class="alert.ngClass" ng-if="alert.isVisible">
+        <i class="fa fa-exclamation-triangle"></i>
+        <a href="#" class="close" data-dismiss="alert" ng-click="alert.isVisible =false">&times;</a>
+        <strong>{{alert.type}}</strong> {{alert.message}}
+    </div>
+    <div ng-hide="isResult">
+        <div class="container">
+            <div class="stepwizard">
+                <div class="stepwizard-row setup-panel">
+                    <div class="stepwizard-step" ng-repeat="step in steps">
+                        <a ng-class="{'btn-primary':step.active,'btn-default':!step.active}" ng-disabled="!step.active" class="btn  btn-circle">{{step.Code}}</a>
+                        <p>{{step.Name}}</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <fieldset ng-disabled="isBusy">
+            <form name="calculator" class="form-horizontal" novalidate>
+                <div class="form-group" ng-show="steps[0].active">
+                    <label class="col-sm-3 control-label">
+                        Select option
+                    </label>
+                    <div class="col-sm-9">
+                        <select class=" form-control" ng-model="type" required>
+                            <option ng-repeat="item in types" value="{{item.Value}}">
+                                {{item.Name}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div ng-show="steps[1].active">
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label">
+                            Current average balance ({{account.Currency.Name}})
+                        </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" ng-model="averageBalance" disabled/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label">
+                            Estimated cost ({{account.Currency.Name}})
+                        </label>
+                        <div class="col-sm-6" ng-class="{'has-error':costs >= averageBalance}">
+                            <input type="number" value="0" class="form-control" ng-model="costs"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-show="steps[2].active">
+                    <div class="form-group" ng-show="type==2">
+                        <label class="col-sm-4 control-label">
+                            Amount money ({{account.Currency.Name}})
+                        </label>
+                        <div class="col-sm-8" ng-class="{'has-error':!money}">
+                            <input type="number" class="form-control" ng-model="money"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group" ng-show="type==1">
+                        <label class="col-sm-4 control-label">
+                            Period (Months)
+                        </label>
+                        <div class="col-sm-8" ng-class="{'has-error':!period || period>36}">
+                            <input type="number" max="36" class="form-control" ng-model="period"/>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </fieldset>
+    </div>
+    <div ng-show="isResult">
+        <h1 class="text-success text-center">Result: {{result | number:2}} ({{type==1?account.Currency.Name: 'months'}})</h1>
+        <canvas id="line" class="chart chart-line" chart-data="dataLine" chart-colours="['#33b86c']"
+                chart-labels="months" chart-legend="true" chart-series="series"></canvas>
+    </div>
+</div>
+<div class="modal-footer" ng-show="steps[0].active">
+    <div>
+        <button class="btn btn-info btn-sm" ng-click="steps[0].active=false;steps[1].active=true" ng-disabled="!type ||!averageBalance || isBusy">
+            Next
+        </button>
+    </div>
+</div>
+<div class="modal-footer" ng-show="steps[1].active">
+    <div>
+        <button class="btn btn-info btn-sm" ng-click="steps[1].active=false;steps[2].active=true" ng-disabled="!type ||!averageBalance ||costs>=averageBalance || isBusy">
+            Next
+        </button>
+    </div>
+</div>
+
+<div class="modal-footer" ng-show="steps[2].active">
+    <button ng-show="type==2" class="btn btn-info btn-sm" ng-click="steps[2].active=false;isResult=true;getResult()" ng-disabled="!money || isBusy">
+        Next
+    </button>
+
+    <button ng-show="type==1" class="btn btn-info btn-sm" ng-click="steps[2].active=false;isResult=true;getResult()" ng-disabled="!period || period>36 || isBusy">
+        Next
+    </button>
+</div>

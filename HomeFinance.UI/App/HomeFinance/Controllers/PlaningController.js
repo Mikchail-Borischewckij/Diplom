@@ -126,8 +126,7 @@
 	    	        return result;
 	    	    }
 	    	}
-
-
+            
 	    	function createGrid(service, loadCallback, categories,footerTemplate,isIncome) {
 	    	    var grid = editableGridFactory.create($scope, service, loadCallback, {
 	    	        showColumnFooter: true,
@@ -140,10 +139,12 @@
                         	        name: 'Category',
                         	        editableCellTemplate: 'ui-grid/dropdownEditor',
                         	        editDropdownValueLabel: 'value',
+                        	        enableCellEdit: false,
                         	        cellTemplate: '<div class="ui-grid-cell-contents">{{COL_FIELD | categoryMap:grid.appScope.' + categories + '}}</div>',
                         	    },
 				        {
 				            name: 'Amount', width: 100, type: 'number',
+				            enableCellEdit: false,
 				            aggregationType: uiGridConstants.aggregationTypes.sum,
 				           },
 					    {
@@ -222,8 +223,6 @@
 	    	    });
 	    	}
 
-	
-
 	    	function createFilterByCategory(grid, data, index) {
 	    		grid.columnDefs[index].editDropdownOptionsArray = [];
 	    		angular.forEach(data, function (item) {
@@ -299,6 +298,17 @@
 	    		}
 	    	}
 
+	    	$scope.showPlaningCalculator = function () {
+	    	    var modalInstance = $modal.open({
+	    	        animation: true,
+                    templateUrl: 'App/HomeFinance/Views/PartialViews/PlaningCalculator.html',
+                    controller: 'planingCalculatorController',
+                    resolve: {
+                        account: function () { return angular.copy($scope.selectedAccount); }
+		            }
+		        });
+	    	}
+
 	    	function getTransactionByMonthAndCategory(array, month, categoryId) {
 	    		var result = [];
 	    		angular.forEach(array, function (item) {
@@ -308,10 +318,7 @@
 	    			}
 	    		});
 	    		return result;
-
-
-
-	    	}
+               }
 	    }
 	]);
 }());

@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
+﻿using System.ServiceModel;
 
 namespace HomeFinance.Host1
 {
-	[ServiceContract]
+    [ServiceContract]
 	public interface IAccountNotificatorService
 	{
 		[OperationContract]

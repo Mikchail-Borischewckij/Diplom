@@ -64,8 +64,7 @@ namespace HomeFinance.UI.Controllers
         [Route("{accountId}")]
         public IEnumerable<int> GetPlaningMonths(int accountId)
         {
-            return _incomePlaningService.ByAccountId(accountId);
+            return _incomePlaningService.ByMonthsAccountId(accountId);
         }
-
     }
 }
