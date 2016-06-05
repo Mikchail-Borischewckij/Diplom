@@ -272,6 +272,7 @@
                         showChartByCostsCategory();
                     });
                     showLineChart();
+                    $scope.$broadcast("$reload", {});
                 }
 
                 function getDropDownListMonths() {

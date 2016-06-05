@@ -47,7 +47,7 @@ textarea {
   resize:none;
 }
 .section {
-  padding-top: 80px;
+  padding-top: 20px;
   padding-bottom: 80px;
 }
 .bg-gray {
@@ -628,7 +628,7 @@ textarea {
     padding: 0px 0px 50px 30px !important;
   }
 }
-@font-face {
+/*@font-face {
 	font-family: 'fontawesome-webfont';
 	src: url('../fonts/font-awesome/fontawesome-webfont.eot') format('embedded-opentype');
 }
@@ -647,5 +647,8 @@ textarea {
 @font-face {
 	font-family: 'FontAwesome';
 	src: url('../fonts/font-awesome/FontAwesome.otf') format('opentype');
-}
+}*/
 
+.footer  .logo {
+    color: #4c5667 !important; 
+}

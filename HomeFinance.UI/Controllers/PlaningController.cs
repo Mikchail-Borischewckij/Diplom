@@ -1,4 +1,6 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Net;
+using System.Web.Http;
 using HomeFinance.Services;
 
 namespace HomeFinance.UI.Controllers
@@ -17,7 +19,12 @@ namespace HomeFinance.UI.Controllers
         [Route("{accountId}")]
         public double GetAverageBalanceByIAccountd(int accountId)
         {
-            return _planingService.GetAverageBalanceByAccountd(accountId);
+            double value = _planingService.GetAverageBalanceByAccountd(accountId);
+            if (Math.Abs(value) <= 0 || Double.IsNaN(value))
+            {
+                throw new HttpResponseException(HttpStatusCode.InternalServerError);
+            }
+            return value;
         }
     }
 }

@@ -3,9 +3,14 @@
 
 	angular.module('homeFinance')
 		.controller('startController', [
-			'$rootScope', '$scope', '$modal', 'authService',
-            function ($rootScope, $scope, $modal, authService) {
+			'$rootScope', '$scope', '$modal','$window', 'authService', '$state',
+            function ($rootScope, $scope, $modal,$window, authService, $state) {
                 $scope.Authorization = authService.authentication;
+                $scope.isLoading = true;
+                $(window).on('load', function () {
+                    $scope.isLoading = false;
+                });
+
 				function showAuthorizationDialog(isLogin) {
 					var modalInstance = $modal.open({
 					    animation: true,
@@ -19,6 +24,13 @@
 					});
 
 					return modalInstance.result;
+				}
+				$scope.getLink =function() {
+				    if ($scope.Authorization.isAuth) {
+				        $state.go('dashboard');
+				    } else {
+				        showAuthorizationDialog(true);
+				    }
 				}
 
 				$scope.singIn = function () {
