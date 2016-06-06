@@ -286,6 +286,7 @@
     <Content Include="Configuration\Endpoints.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Configuration\connections.config" />
     <None Include="Properties\PublishProfiles\home-finance - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\home-finance - FTP %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\home-finance - FTP.pubxml" />
