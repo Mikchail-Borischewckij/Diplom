@@ -7,10 +7,10 @@
             function ($rootScope, $scope, $modal,$window, authService, $state) {
                 $scope.Authorization = authService.authentication;
                 $scope.isLoading = true;
-                $(window).on('load', function () {
+                $scope.$on('cfpLoadingBar:loaded', function () {
                     $scope.isLoading = false;
                 });
-
+                
 				function showAuthorizationDialog(isLogin) {
 					var modalInstance = $modal.open({
 					    animation: true,

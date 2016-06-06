@@ -163,6 +163,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Service References\AccountNotificatorServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\HomeFinance\AppConstants.js" />
@@ -347,6 +352,13 @@
     <Content Include="Scripts\ng-tree-dnd.min.js" />
     <Content Include="Scripts\ui-grid.js" />
     <Content Include="Scripts\wow.min.js" />
+    <None Include="Service References\AccountNotificatorServiceReference\IAccountNotificatorService.disco" />
+    <None Include="Service References\AccountNotificatorServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\AccountNotificatorServiceReference\configuration.svcinfo" />
+    <None Include="Service References\AccountNotificatorServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -363,6 +375,10 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Service References\AccountNotificatorServiceReference\AccountNotificatorService.wsdl" />
+    <None Include="Service References\AccountNotificatorServiceReference\IAccountNotificatorService.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HomeFinance.Contract\HomeFinance.Contract.csproj">
@@ -405,6 +421,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AccountNotificatorServiceReference\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -9,6 +9,10 @@ namespace HomeFinance.Core
 
 		private const string InvalidConfigSetting = "Invalid configuration setting name: {0}";
 
+	    public static int UpdateAccountsTime
+	    {
+            get { return int.Parse(GetConfigSettingItem("UpdateAccountsTime")); }
+	    }
 
 		public static double AuthTokenExpiry
 		{

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3b7768a7-3434-4735-8458-b0bb2a5e47e0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:3789/IAccountNotificatorService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="IAccountNotificatorService.xsd" MetadataType="Schema" ID="c31632a1-3073-4beb-a10f-1b765b2528a8" SourceId="1" SourceUrl="http://localhost:3789/IAccountNotificatorService.svc?xsd=xsd0" />
+    <MetadataFile FileName="AccountNotificatorService.wsdl" MetadataType="Wsdl" ID="68d0449a-5598-4133-b827-9d506840647d" SourceId="1" SourceUrl="http://localhost:3789/IAccountNotificatorService.svc?wsdl" />
+    <MetadataFile FileName="IAccountNotificatorService.disco" MetadataType="Disco" ID="f77a78c0-d94d-47cd-adc1-6c28403b306d" SourceId="1" SourceUrl="http://localhost:3789/IAccountNotificatorService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

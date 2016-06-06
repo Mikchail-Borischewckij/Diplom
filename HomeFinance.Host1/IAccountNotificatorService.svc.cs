@@ -22,8 +22,9 @@ namespace HomeFinance.Host1
             _accountsService = accountsService;
             _incomeService = incomeService;
             _costsService = costsService;
-            _timer = new Timer(90000); //15 min
-
+           
+            //_timer = new Timer(90000); //15 min
+            _timer = new Timer(9000);
             _timer.Elapsed += OnTimedEvent;
             _timer.AutoReset = true;
             _timer.Enabled = true;
