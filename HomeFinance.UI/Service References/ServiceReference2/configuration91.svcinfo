@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="PAPlgxeY40M2o8JEWy4C9hWcjqg=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="RtewS8u601weuxex+R9k6G8uCf4=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IAccountNotificatorService">
       <properties>
@@ -112,7 +112,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IAccountNotificatorService" contract="AccountNotificatorServiceReference.IAccountNotificatorService" bindingType="basicHttpBinding" address="http://localhost:3789/IAccountNotificatorService.svc" bindingConfiguration="BasicHttpBinding_IAccountNotificatorService">
+    <endpoint name="BasicHttpBinding_IAccountNotificatorService" contract="ServiceReference2.IAccountNotificatorService" bindingType="basicHttpBinding" address="http://localhost:3789/IAccountNotificatorService.svc" bindingConfiguration="BasicHttpBinding_IAccountNotificatorService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://localhost:3789/IAccountNotificatorService.svc</serializedValue>
@@ -127,7 +127,7 @@
           <serializedValue>BasicHttpBinding_IAccountNotificatorService</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>AccountNotificatorServiceReference.IAccountNotificatorService</serializedValue>
+          <serializedValue>ServiceReference2.IAccountNotificatorService</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>

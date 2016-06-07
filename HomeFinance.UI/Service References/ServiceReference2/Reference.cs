@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HomeFinance.UI.AccountNotificatorServiceReference {
+namespace HomeFinance.UI.ServiceReference2 {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="AccountNotificatorServiceReference.IAccountNotificatorService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference2.IAccountNotificatorService")]
     public interface IAccountNotificatorService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountNotificatorService/StartUpdateAccounts", ReplyAction="http://tempuri.org/IAccountNotificatorService/StartUpdateAccountsResponse")]
@@ -29,12 +29,12 @@ namespace HomeFinance.UI.AccountNotificatorServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IAccountNotificatorServiceChannel : HomeFinance.UI.AccountNotificatorServiceReference.IAccountNotificatorService, System.ServiceModel.IClientChannel {
+    public interface IAccountNotificatorServiceChannel : HomeFinance.UI.ServiceReference2.IAccountNotificatorService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class AccountNotificatorServiceClient : System.ServiceModel.ClientBase<HomeFinance.UI.AccountNotificatorServiceReference.IAccountNotificatorService>, HomeFinance.UI.AccountNotificatorServiceReference.IAccountNotificatorService {
+    public partial class AccountNotificatorServiceClient : System.ServiceModel.ClientBase<HomeFinance.UI.ServiceReference2.IAccountNotificatorService>, HomeFinance.UI.ServiceReference2.IAccountNotificatorService {
         
         public AccountNotificatorServiceClient() {
         }

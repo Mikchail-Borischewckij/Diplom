@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3b7768a7-3434-4735-8458-b0bb2a5e47e0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="770f61fc-004d-4e96-8fb5-e70ecb471984" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,9 +22,9 @@
     <MetadataSource Address="http://localhost:3789/IAccountNotificatorService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="IAccountNotificatorService.xsd" MetadataType="Schema" ID="c31632a1-3073-4beb-a10f-1b765b2528a8" SourceId="1" SourceUrl="http://localhost:3789/IAccountNotificatorService.svc?xsd=xsd0" />
-    <MetadataFile FileName="AccountNotificatorService.wsdl" MetadataType="Wsdl" ID="68d0449a-5598-4133-b827-9d506840647d" SourceId="1" SourceUrl="http://localhost:3789/IAccountNotificatorService.svc?wsdl" />
-    <MetadataFile FileName="IAccountNotificatorService.disco" MetadataType="Disco" ID="f77a78c0-d94d-47cd-adc1-6c28403b306d" SourceId="1" SourceUrl="http://localhost:3789/IAccountNotificatorService.svc?disco" />
+    <MetadataFile FileName="IAccountNotificatorService.xsd" MetadataType="Schema" ID="014422cb-1639-4741-9627-525e887a38c2" SourceId="1" SourceUrl="http://localhost:3789/IAccountNotificatorService.svc?xsd=xsd0" />
+    <MetadataFile FileName="AccountNotificatorService.wsdl" MetadataType="Wsdl" ID="70ae9e76-de42-4e84-8c16-c26a56935d8e" SourceId="1" SourceUrl="http://localhost:3789/IAccountNotificatorService.svc?wsdl" />
+    <MetadataFile FileName="IAccountNotificatorService.disco" MetadataType="Disco" ID="95dfd418-3352-4f5b-99f0-0ab10f49b7e6" SourceId="1" SourceUrl="http://localhost:3789/IAccountNotificatorService.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

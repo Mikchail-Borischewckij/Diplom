@@ -5,7 +5,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using HomeFinance.Core;
-using HomeFinance.UI.AccountNotificatorServiceReference;
+using HomeFinance.UI.ServiceReference2;
 using Newtonsoft.Json;
 
 namespace HomeFinance.UI

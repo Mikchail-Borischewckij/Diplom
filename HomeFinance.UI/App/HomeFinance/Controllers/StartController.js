@@ -6,7 +6,16 @@
 			'$rootScope', '$scope', '$modal','$window', 'authService', '$state',
             function ($rootScope, $scope, $modal,$window, authService, $state) {
                 $scope.Authorization = authService.authentication;
-                $scope.isLoading = true;
+                $scope.isLoading = false;
+
+                $scope.$on('cfpLoadingBar:loading', function () {
+                    $scope.isLoading = true;
+                });
+
+                $scope.$on(' cfpLoadingBar:started', function () {
+                    $scope.isLoading = true;
+                });
+               
                 $scope.$on('cfpLoadingBar:loaded', function () {
                     $scope.isLoading = false;
                 });

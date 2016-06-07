@@ -24,7 +24,7 @@ namespace HomeFinance.Host1
             _costsService = costsService;
            
             //_timer = new Timer(90000); //15 min
-            _timer = new Timer(9000);
+            _timer = new Timer(90000);
             _timer.Elapsed += OnTimedEvent;
             _timer.AutoReset = true;
             _timer.Enabled = true;
@@ -74,8 +74,9 @@ namespace HomeFinance.Host1
                 Income newIncome = new Income(copy.Id, copy.Amount, copy.Description, currentDate, null,
                     TransactionType.Single, copy.AccountId,
                     copy.CategoryId);
+                TLog.Write("newIncome " + newIncome.Description);
                 IResult<Income> result = _incomeService.Create(newIncome);
-
+                TLog.Write("newIncome result.IsSuccess" + result.IsSuccess);
                 if (result.IsSuccess)
                 {
                     income.UpdatedDate = income.UpdatedDate.Value.AddMonths(1);
@@ -101,10 +102,12 @@ namespace HomeFinance.Host1
                 {
                     continue;
                 }
-                Cost newIncome = new Cost(copy.Id, copy.Amount, copy.Description, currentDate, null,
+                Cost newCost = new Cost(copy.Id, copy.Amount, copy.Description, currentDate, null,
                     TransactionType.Single, copy.AccountId,
                     copy.CategoryId);
-                IResult<Cost> result = _costsService.Create(newIncome);
+                TLog.Write("newCost " + newCost.Description);
+                IResult<Cost> result = _costsService.Create(newCost);
+                TLog.Write("newCost result.IsSuccess" + result.IsSuccess);
                 if (result.IsSuccess)
                 {
                     cost.UpdatedDate = cost.UpdatedDate.Value.AddMonths(1);
@@ -115,13 +118,11 @@ namespace HomeFinance.Host1
 
         public void StartUpdateAccounts()
         {
-            TLog.Write("WCF Start");
             _timer.Start();
         }
 
         public void StopUpdateAccounts()
         {
-            TLog.Write("WCF Stop");
             _timer.Stop();
         }
     }
